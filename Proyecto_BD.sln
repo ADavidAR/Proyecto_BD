@@ -5,6 +5,18 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Proyecto_BD", "Proyecto_BD\Proyecto_BD.dtproj", "{D6870543-C2BD-46B9-8D3B-6AE5FFEF8785}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{C458D52A-048A-4342-9CB7-A662596410F3}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\Borrar_DW.sql = scripts\Borrar_DW.sql
+		scripts\Borrar_Stagingsql.sql = scripts\Borrar_Stagingsql.sql
+		scripts\Consulas_ETL.sql = scripts\Consulas_ETL.sql
+		scripts\Creacion_Usuario_esquema_DB.sql = scripts\Creacion_Usuario_esquema_DB.sql
+		scripts\Crear_DW.sql = scripts\Crear_DW.sql
+		scripts\Crear_staging.sql = scripts\Crear_staging.sql
+		scripts\Inserciones_Staging.sql = scripts\Inserciones_Staging.sql
+		scripts\Resgistros_BD_staging.sql = scripts\Resgistros_BD_staging.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
