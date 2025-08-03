@@ -11,8 +11,8 @@
   DTS:LocaleID="18442"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{0FFB1160-265C-4318-868D-9146D1C65CEB}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{3861E0A9-35DE-4215-A2E6-F1362747E5FB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJEUg8PWewUuyyrcPCfY3/AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC4B/3cTXUfZvX4ZLeNL6gimzfQu2izZ4ighreSM8biiQAAAAAOgAAAAAIAACAAAABGHbsfdlMizUOqZpOBJ26lqzzBV/O/srJ7dy1+kANbNyAAAADr0yy3AMo19NrzS0tgIbeEndVPF5pyQiMCCIhVoAnJtEAAAAAp+fysnvdUy5SO7zErbFWazKiZ9Z9vGJSsZVOMBovhui7cBGA0lbga20eEvgnj9qwvy3JpZMi1d/B1GCitTfXA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJEUg8PWewUuyyrcPCfY3/AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABYQ9T9ckkB9IeZOplDi7sPeNgJPHFmthxXF5fOS6s+NQAAAAAOgAAAAAIAACAAAAA/wWw0inRnjhsI0lz5mjonBMTh1Xgc0puCvr59uFicICAAAABLFOuU2RbVSqm8sWvRMI68yiXegN58nM7mmQnMK2PHn0AAAACQ2Az30jq8YibqlyfmuEk3wf2tFdogK8D+iWXqDV+t8DVQBKeKwsnC093h5S3NX81462wV9VhPBIhhucEhRQK+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,13 +46,30 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJEUg8PWewUuyyrcPCfY3/AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAujiRsg5nc051oH1ml863jAcWatCIfzzBY8Du4uQeudQAAAAAOgAAAAAIAACAAAADiiD8f6tmZTFMQV5kttHaCgFkvF1st0wN+5vOD9lVRfiAAAADISn9Rrux3M0K+t95c+Onu97ajoJIXtj6XzgQnwBscekAAAACU+17LUWaYi/Q6uZHpkT/Iq6jPfrpcSgwDrh9vKzaKfFlmLF0EZRkDmsVzfACDTvDi25e+WAhvC8G+5o9Dzrr5</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJEUg8PWewUuyyrcPCfY3/AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABG47oU8fazCEkFID27m9nbh2Tx0NRzKtlPCXEw7lt6jgAAAAAOgAAAAAIAACAAAABbsAsTTXnYwx0WQ6MLE5cF8NjjCM6GpjsdAzXY/Sm5NSAAAADkHv6Cm9lz2467UAlPMqppgqLwAKGbUNhOFzubxg4UjkAAAACkMHaRQxxp7EJpyqSENuOFnK12f7o8KPTcYjYsq+76l3DCV3OYfy3VrHl2yo8wJQDlk52R6EOc3xoK7i0avP1D</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Generar Valores para Dim_Tiempo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{E7838107-ABF8-4731-AFE3-E99574990C5D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Generar Valores para Dim_Tiempo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7B43C4FC-0B3D-4AD1-B4A9-F3B731A7E1B4}"
+          SQLTask:SqlStatementSource="DECLARE @fecha_inicio DATE = CAST( '2023-01-01' AS DATE)&#xA;DECLARE @fecha_fin DATE = CAST( '2025-12-31' AS DATE)&#xA;DECLARE @anio INT&#xA;DECLARE @mes INT&#xA;DECLARE @dia INT&#xA;DECLARE @trimestre INT&#xA;WHILE @fecha_inicio &lt; @fecha_fin&#xA;Begin&#xA;&#x9;Print(@fecha_inicio)&#xA;&#x9;SET @anio = YEAR(@fecha_inicio)&#xA;&#x9;SET @mes = MONTH(@fecha_inicio)&#xA;&#x9;SET @dia = DAY(@fecha_inicio)&#xA;&#x9;&#xA;&#x9;SET @trimestre = CASE &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 3 THEN 1 &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 6 THEN 2 &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 9 THEN 3 &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 12 THEN 4 &#xA;&#x9;&#x9;                 END&#xA;&#x9;Insert Into splotify.Dim_Tiempo(fecha, anio, mes, dia, trimestre) VALUES&#xA;&#x9;(@fecha_inicio, @anio, @mes, @dia, @trimestre)&#xA;&#xA;&#x9;SET @fecha_inicio = DATEADD(DAY, 1, @fecha_inicio)&#xA;End" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Importar Album"
       DTS:CreationName="Microsoft.Pipeline"
@@ -576,6 +593,14 @@ GROUP BY al.id_album, titulo, fecha_lanzamiento</property>
                       cachedScale="7"
                       externalMetadataColumnId="Package\Importar Cancion\Dim_Cancion.Inputs[OLE DB Destination Input].ExternalColumns[duracion]"
                       lineageId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output].Columns[duracion]" />
+                    <inputColumn
+                      refId="Package\Importar Cancion\Dim_Cancion.Inputs[OLE DB Destination Input].Columns[genero_musical]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="genero_musical"
+                      externalMetadataColumnId="Package\Importar Cancion\Dim_Cancion.Inputs[OLE DB Destination Input].ExternalColumns[genero_musical]"
+                      lineageId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output].Columns[genero_musical]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -610,6 +635,12 @@ GROUP BY al.id_album, titulo, fecha_lanzamiento</property>
                       dataType="dbTime2"
                       name="duracion"
                       scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Cancion\Dim_Cancion.Inputs[OLE DB Destination Input].ExternalColumns[genero_musical]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="genero_musical" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -668,11 +699,13 @@ GROUP BY al.id_album, titulo, fecha_lanzamiento</property>
 	   duracion,
 	   fecha_lanzamiento, 
 	   STRING_AGG(ar.nombre, ',') artista, 
-	   STRING_AGG(CAST(ar.fecha_afiliacion AS varchar(500)), ',') fecha_afiliacion_artista
+	   STRING_AGG(CAST(ar.fecha_afiliacion AS varchar(500)), ',') fecha_afiliacion_artista,
+	   gm.nombre AS genero_musical
 From splotify.Cancion c
 Join splotify.Artista_X_Cancion ac ON ac.id_cancion = c.id_cancion
 Join splotify.Artista ar ON ac.id_artista = ar.id_artista
-GROUP BY c.id_cancion, titulo, duracion, fecha_lanzamiento</property>
+Join splotify.Genero_Musical gm ON gm.id_genero_musical = c.id_genero_musical
+GROUP BY c.id_cancion, titulo, duracion, fecha_lanzamiento, gm.nombre</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -769,6 +802,17 @@ GROUP BY c.id_cancion, titulo, duracion, fecha_lanzamiento</property>
                       name="duracion"
                       scale="7"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output].Columns[genero_musical]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output].ExternalColumns[genero_musical]"
+                      length="100"
+                      lineageId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output].Columns[genero_musical]"
+                      name="genero_musical"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -803,6 +847,12 @@ GROUP BY c.id_cancion, titulo, duracion, fecha_lanzamiento</property>
                       dataType="dbTime2"
                       name="duracion"
                       scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output].ExternalColumns[genero_musical]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="genero_musical" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -848,6 +898,13 @@ GROUP BY c.id_cancion, titulo, duracion, fecha_lanzamiento</property>
                       lineageId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Error Output].Columns[fecha_afiliacion_artista]"
                       name="fecha_afiliacion_artista" />
                     <outputColumn
+                      refId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Error Output].Columns[genero_musical]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Error Output].Columns[genero_musical]"
+                      name="genero_musical" />
+                    <outputColumn
                       refId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -871,953 +928,6 @@ GROUP BY c.id_cancion, titulo, duracion, fecha_lanzamiento</property>
               endId="Package\Importar Cancion\Dim_Cancion.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Importar Cancion\Origen Cancion.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Importar Genero_Musical"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{4550f422-cc1f-43ae-b1f2-61ab970ca581}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Importar Genero_Musical"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Importar Genero_Musical\Dim_Genero_Musical"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Dim_Genero_Musical"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[splotify].[Dim_Genero_Musical]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DW Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[DW Destino]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input].Columns[id_genero_musical]"
-                      cachedDataType="i4"
-                      cachedName="id_genero_musical"
-                      externalMetadataColumnId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input].ExternalColumns[id_genero_musical]"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].Columns[id_genero_musical]" />
-                    <inputColumn
-                      refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input].Columns[nombre]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="nombre"
-                      externalMetadataColumnId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].Columns[nombre]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input].ExternalColumns[id_genero_musical]"
-                      dataType="i4"
-                      name="id_genero_musical" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nombre" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Genero_Musical\Dim_Genero_Musical.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Dim_Genero_Musical.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Genero_Musical\Dim_Genero_Musical.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Importar Genero_Musical\Origen Genero_Musical"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Origen Genero_Musical"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select id_genero_musical ,nombre
-From splotify.Genero_Musical</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Genero_Musical\Origen Genero_Musical.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Staging Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Staging Origen]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].Columns[id_genero_musical]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].ExternalColumns[id_genero_musical]"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].Columns[id_genero_musical]"
-                      name="id_genero_musical"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].Columns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
-                      length="100"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].Columns[nombre]"
-                      name="nombre"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].ExternalColumns[id_genero_musical]"
-                      dataType="i4"
-                      name="id_genero_musical" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nombre" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[id_genero_musical]"
-                      dataType="i4"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[id_genero_musical]"
-                      name="id_genero_musical" />
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[nombre]"
-                      name="nombre" />
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Importar Genero_Musical.Paths[OLE DB Source Output]"
-              endId="Package\Importar Genero_Musical\Dim_Genero_Musical.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Importar Genero_Musical\Origen Genero_Musical.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Importar Pais"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{4d4149f3-f4c4-417b-b15b-d75aa67011d2}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Importar Pais"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Importar Pais\Dim_Pais"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Dim_Pais"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[splotify].[Dim_Pais]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Pais\Dim_Pais.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DW Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[DW Destino]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].Columns[id_pais]"
-                      cachedDataType="i4"
-                      cachedName="id_pais"
-                      externalMetadataColumnId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].ExternalColumns[id_pais]"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[id_pais]" />
-                    <inputColumn
-                      refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].Columns[nombre]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="nombre"
-                      externalMetadataColumnId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[nombre]" />
-                    <inputColumn
-                      refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].Columns[region]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="45"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[region]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].ExternalColumns[id_pais]"
-                      dataType="i4"
-                      name="id_pais" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nombre" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="region" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Importar Pais\Dim_Pais.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Pais\Dim_Pais.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Pais\Dim_Pais.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Dim_Pais.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Pais\Dim_Pais.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Importar Pais\Origen Pais"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Origen Pais"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select p.id_pais,p.nombre,r.nombre as region 
-from splotify.Pais p
-Join splotify.Region r On r.id_region = p.id_region</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Pais\Origen Pais.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Staging Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Staging Origen]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[id_pais]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].ExternalColumns[id_pais]"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[id_pais]"
-                      name="id_pais"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
-                      length="100"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[nombre]"
-                      name="nombre"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[region]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].ExternalColumns[region]"
-                      length="45"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].Columns[region]"
-                      name="region"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].ExternalColumns[id_pais]"
-                      dataType="i4"
-                      name="id_pais" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nombre" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output].ExternalColumns[region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="45"
-                      name="region" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[id_pais]"
-                      dataType="i4"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[id_pais]"
-                      name="id_pais" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[nombre]"
-                      name="nombre" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="45"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[region]"
-                      name="region" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Importar Pais.Paths[OLE DB Source Output]"
-              endId="Package\Importar Pais\Dim_Pais.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Importar Pais\Origen Pais.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Importar Promocion"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{C1F4ACA3-7D98-4EE3-B1DF-CA6A4B7FBC27}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Importar Promocion"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Importar Promocion\Dim_Promocion"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Dim_Promocion"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[splotify].[Dim_Promocion]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Promocion\Dim_Promocion.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DW Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[DW Destino]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].Columns[descuento]"
-                      cachedDataType="numeric"
-                      cachedName="descuento"
-                      cachedPrecision="10"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[descuento]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[descuento]" />
-                    <inputColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].Columns[fecha_inicio]"
-                      cachedDataType="dbDate"
-                      cachedName="fecha_inicio"
-                      externalMetadataColumnId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[fecha_inicio]" />
-                    <inputColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].Columns[fecha_fin]"
-                      cachedDataType="dbDate"
-                      cachedName="fecha_fin"
-                      externalMetadataColumnId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_fin]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[fecha_fin]" />
-                    <inputColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].Columns[id_promocion]"
-                      cachedDataType="i4"
-                      cachedName="id_promocion"
-                      externalMetadataColumnId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[id_promocion]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[id_promocion]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[id_promocion]"
-                      dataType="i4"
-                      name="id_promocion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[descuento]"
-                      dataType="numeric"
-                      name="descuento"
-                      precision="10"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
-                      dataType="dbDate"
-                      name="fecha_inicio" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_fin]"
-                      dataType="dbDate"
-                      name="fecha_fin" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Importar Promocion\Dim_Promocion.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Promocion\Dim_Promocion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Dim_Promocion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Promocion\Dim_Promocion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Importar Promocion\Origen Promocion"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Origen Promocion"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select id_promocion,
-	   descuento,
-	   fecha_inicio,
-	   fecha_fin
-From splotify.Promocion</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Promocion\Origen Promocion.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Staging Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Staging Origen]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[descuento]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[descuento]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[descuento]"
-                      name="descuento"
-                      precision="10"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
-                      name="fecha_inicio"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[fecha_fin]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[fecha_fin]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[fecha_fin]"
-                      name="fecha_fin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[id_promocion]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[id_promocion]"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].Columns[id_promocion]"
-                      name="id_promocion"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[descuento]"
-                      dataType="numeric"
-                      name="descuento"
-                      precision="10"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
-                      dataType="dbDate"
-                      name="fecha_inicio" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[fecha_fin]"
-                      dataType="dbDate"
-                      name="fecha_fin" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output].ExternalColumns[id_promocion]"
-                      dataType="i4"
-                      name="id_promocion" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[id_promocion]"
-                      dataType="i4"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[id_promocion]"
-                      name="id_promocion" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[descuento]"
-                      dataType="numeric"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[descuento]"
-                      name="descuento"
-                      precision="10"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
-                      dataType="dbDate"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
-                      name="fecha_inicio" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[fecha_fin]"
-                      dataType="dbDate"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[fecha_fin]"
-                      name="fecha_fin" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Importar Promocion.Paths[OLE DB Source Output]"
-              endId="Package\Importar Promocion\Dim_Promocion.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Importar Promocion\Origen Promocion.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1909,18 +1019,6 @@ From splotify.Promocion</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[id_usuario]"
-                      cachedDataType="i4"
-                      cachedName="id_usuario"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_usuario]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_usuario]" />
-                    <inputColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[id_genero_musical]"
-                      cachedDataType="i4"
-                      cachedName="id_genero_musical"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_genero_musical]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_genero_musical]" />
-                    <inputColumn
                       refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[id_cancion]"
                       cachedDataType="i4"
                       cachedName="id_cancion"
@@ -1933,23 +1031,11 @@ From splotify.Promocion</property>
                       externalMetadataColumnId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_album]"
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_album]" />
                     <inputColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[id_pais]"
-                      cachedDataType="i4"
-                      cachedName="id_pais"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_pais]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_pais]" />
-                    <inputColumn
                       refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[id_suscripcion]"
                       cachedDataType="i4"
                       cachedName="id_suscripcion"
                       externalMetadataColumnId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_suscripcion]"
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_suscripcion]" />
-                    <inputColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[id_promocion]"
-                      cachedDataType="i4"
-                      cachedName="id_promocion"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_promocion]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_promocion]" />
                     <inputColumn
                       refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].Columns[tiempo_reproduccion]"
                       cachedDataType="dbTime2"
@@ -1977,14 +1063,6 @@ From splotify.Promocion</property>
                       dataType="i4"
                       name="id_reproduccion" />
                     <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_usuario]"
-                      dataType="i4"
-                      name="id_usuario" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_genero_musical]"
-                      dataType="i4"
-                      name="id_genero_musical" />
-                    <externalMetadataColumn
                       refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_cancion]"
                       dataType="i4"
                       name="id_cancion" />
@@ -1993,17 +1071,9 @@ From splotify.Promocion</property>
                       dataType="i4"
                       name="id_album" />
                     <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_pais]"
-                      dataType="i4"
-                      name="id_pais" />
-                    <externalMetadataColumn
                       refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_suscripcion]"
                       dataType="i4"
                       name="id_suscripcion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[id_promocion]"
-                      dataType="i4"
-                      name="id_promocion" />
                     <externalMetadataColumn
                       refId="Package\Importar Reproduccion\Hecho_Reproduccion.Inputs[OLE DB Destination Input].ExternalColumns[tiempo_reproduccion]"
                       dataType="dbTime2"
@@ -2067,21 +1137,15 @@ From splotify.Promocion</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select r.id_reproduccion,
-	   u.id_usuario,
-	   c.id_genero_musical,
 	   c.id_cancion,
 	   c.id_album,
-	   u.id_pais,
 	   su.id_registro_suscripcion id_suscripcion,
-	   (Select id_promocion From splotify.Promocion Where id_suscripcion = su.id_suscripcion AND (su.fecha_inicio BETWEEN fecha_inicio AND fecha_fin))  id_promocion,
 	   DATEDIFF(DAY, CAST( '2023-01-01' AS DATE), r.fecha_reproduccion) + 1 id_tiempo,
 	   r.tiempo_reproduccion
 From splotify.Reproduccion r
 Left Join splotify.Usuario u ON u.id_usuario = r.id_usuario
 Left Join splotify.Cancion c ON c.id_cancion = r.id_cancion
-Left Join splotify.Genero g ON g.id_genero = u.id_genero
 Left Join splotify.Suscripcion_X_Usuario su ON su.id_usuario = u.id_usuario
-Left Join splotify.Promocion p ON p.id_suscripcion = su.id_suscripcion
 Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                 <property
                   dataType="System.String"
@@ -2119,24 +1183,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_usuario]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_usuario]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_usuario]"
-                      name="id_usuario"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_genero_musical]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_genero_musical]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_genero_musical]"
-                      name="id_genero_musical"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_cancion]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -2155,15 +1201,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       name="id_album"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_pais]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_pais]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_pais]"
-                      name="id_pais"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_suscripcion]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -2171,15 +1208,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       externalMetadataColumnId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_suscripcion]"
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_suscripcion]"
                       name="id_suscripcion"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_promocion]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_promocion]"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[id_promocion]"
-                      name="id_promocion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].Columns[tiempo_reproduccion]"
@@ -2213,14 +1241,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_usuario]"
-                      dataType="i4"
-                      name="id_usuario" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_genero_musical]"
-                      dataType="i4"
-                      name="id_genero_musical" />
-                    <externalMetadataColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_cancion]"
                       dataType="i4"
                       name="id_cancion" />
@@ -2229,17 +1249,9 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       dataType="i4"
                       name="id_album" />
                     <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_pais]"
-                      dataType="i4"
-                      name="id_pais" />
-                    <externalMetadataColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_suscripcion]"
                       dataType="i4"
                       name="id_suscripcion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[id_promocion]"
-                      dataType="i4"
-                      name="id_promocion" />
                     <externalMetadataColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Output].ExternalColumns[tiempo_reproduccion]"
                       dataType="dbTime2"
@@ -2266,16 +1278,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_reproduccion]"
                       name="id_reproduccion" />
                     <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_usuario]"
-                      dataType="i4"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_usuario]"
-                      name="id_usuario" />
-                    <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_genero_musical]"
-                      dataType="i4"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_genero_musical]"
-                      name="id_genero_musical" />
-                    <outputColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_cancion]"
                       dataType="i4"
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_cancion]"
@@ -2286,20 +1288,10 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_album]"
                       name="id_album" />
                     <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_pais]"
-                      dataType="i4"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_pais]"
-                      name="id_pais" />
-                    <outputColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_suscripcion]"
                       dataType="i4"
                       lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_suscripcion]"
                       name="id_suscripcion" />
-                    <outputColumn
-                      refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_promocion]"
-                      dataType="i4"
-                      lineageId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_promocion]"
-                      name="id_promocion" />
                     <outputColumn
                       refId="Package\Importar Reproduccion\Origen Reproduccion.Outputs[OLE DB Source Error Output].Columns[id_tiempo]"
                       dataType="i4"
@@ -2432,12 +1424,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[id_registro_suscripcion]"
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[id_registro_suscripcion]" />
                     <inputColumn
-                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[id_suscripcion]"
-                      cachedDataType="i4"
-                      cachedName="id_suscripcion"
-                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[id_suscripcion]"
-                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[id_suscripcion]" />
-                    <inputColumn
                       refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[titulo_suscripcion]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -2445,13 +1431,6 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       cachedName="titulo_suscripcion"
                       externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[titulo_suscripcion]"
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[titulo_suscripcion]" />
-                    <inputColumn
-                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[descripcion]"
-                      cachedCodepage="1252"
-                      cachedDataType="text"
-                      cachedName="descripcion"
-                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
-                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion]" />
                     <inputColumn
                       refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[fecha_inicio]"
                       cachedDataType="dbTimeStamp"
@@ -2498,6 +1477,80 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       cachedName="num_integrantes"
                       externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[num_integrantes]"
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[num_integrantes]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[descripcion_suscripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="descripcion_suscripcion"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[descripcion_suscripcion]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion_suscripcion]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[descripcion_promocion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="descripcion_promocion"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[descripcion_promocion]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion_promocion]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[nombre_usuario]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_usuario"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[nombre_usuario]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[nombre_usuario]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[contrasena]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="contrasena"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[contrasena]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[contrasena]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[correo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="correo"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[correo]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[correo]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[fecha_creacion]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_creacion"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[fecha_nacimiento]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_nacimiento"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_nacimiento]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[genero]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="genero"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[genero]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[genero]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="pais"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[pais]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[pais]" />
+                    <inputColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="45"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[region]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2506,20 +1559,11 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       dataType="i4"
                       name="id_registro_suscripcion" />
                     <externalMetadataColumn
-                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[id_suscripcion]"
-                      dataType="i4"
-                      name="id_suscripcion" />
-                    <externalMetadataColumn
                       refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[titulo_suscripcion]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="titulo_suscripcion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
-                      codePage="1252"
-                      dataType="text"
-                      name="descripcion" />
                     <externalMetadataColumn
                       refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
                       dataType="dbTimeStamp"
@@ -2552,6 +1596,60 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                       refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[num_integrantes]"
                       dataType="i4"
                       name="num_integrantes" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[descripcion_suscripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      name="descripcion_suscripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[descripcion_promocion]"
+                      codePage="1252"
+                      dataType="text"
+                      name="descripcion_promocion" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[nombre_usuario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre_usuario" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[contrasena]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="contrasena" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[correo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="correo" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
+                      dataType="dbDate"
+                      name="fecha_creacion" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[fecha_nacimiento]"
+                      dataType="dbDate"
+                      name="fecha_nacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[genero]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="genero" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Dim_Suscripcion.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="region" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2606,19 +1704,37 @@ Where r.fecha_reproduccion BETWEEN su.fecha_inicio AND su.fecha_fin</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select su.id_registro_suscripcion,
-	   su.id_suscripcion,
 	   su.id_grupo,
 	   COALESCE((Select COUNT(1) From splotify.Suscripcion_X_Usuario Where id_grupo = su.id_grupo), 1) num_integrantes,
 	   s.titulo as titulo_suscripcion,
-	   s.descripcion,
+	   s.descripcion AS descripcion_suscripcion,
+	   (Select pro.descripcion
+		From splotify.Promocion pro
+		Where id_suscripcion = su.id_suscripcion 
+			  AND (su.fecha_inicio BETWEEN pro.fecha_inicio AND pro.fecha_fin)
+	   ) AS descripcion_promocion,
+
 	   su.fecha_inicio,
 	   su.fecha_fin,
 	   su.fecha_cancelacion,
 	   su.precio_dolar,
-	   descuento
+	   su.descuento,
+	   u.nombre_usuario,
+	   u.contrasena,
+	   u.correo,
+	   u.fecha_creacion,
+	   u.fecha_nacimiento,
+	   ge.descripcion AS genero,
+	   pa.nombre AS pais,
+	   r.nombre AS region
 From splotify.Suscripcion_X_Usuario su
 Left Join splotify.Suscripcion s ON s.id_suscripcion=su.id_suscripcion
-Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
+Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo
+Left Join splotify.Promocion p ON p.id_suscripcion = s.id_suscripcion
+Left Join splotify.Usuario u ON u.id_usuario = su.id_usuario
+Left Join splotify.Pais pa ON pa.id_pais = u.id_pais
+Left Join splotify.Region r ON r.id_region = pa.id_region
+Left Join splotify.Genero ge ON ge.id_genero = u.id_genero</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2664,15 +1780,6 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       name="id_registro_suscripcion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[id_suscripcion]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[id_suscripcion]"
-                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[id_suscripcion]"
-                      name="id_suscripcion"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[titulo_suscripcion]"
                       codePage="1252"
                       dataType="str"
@@ -2682,16 +1789,6 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       length="45"
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[titulo_suscripcion]"
                       name="titulo_suscripcion"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
-                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion]"
-                      name="descripcion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_inicio]"
@@ -2760,6 +1857,110 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[num_integrantes]"
                       name="num_integrantes"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion_suscripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[descripcion_suscripcion]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion_suscripcion]"
+                      name="descripcion_suscripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion_promocion]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[descripcion_promocion]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[descripcion_promocion]"
+                      name="descripcion_promocion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[nombre_usuario]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[nombre_usuario]"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[nombre_usuario]"
+                      name="nombre_usuario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[contrasena]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[contrasena]"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[contrasena]"
+                      name="contrasena"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[correo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[correo]"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[correo]"
+                      name="correo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_creacion]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[fecha_creacion]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_creacion]"
+                      name="fecha_creacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[fecha_nacimiento]"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]"
+                      name="fecha_nacimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[genero]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[genero]"
+                      length="50"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[genero]"
+                      name="genero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[pais]"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[pais]"
+                      name="pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="45"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2768,20 +1969,11 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       dataType="i4"
                       name="id_registro_suscripcion" />
                     <externalMetadataColumn
-                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[id_suscripcion]"
-                      dataType="i4"
-                      name="id_suscripcion" />
-                    <externalMetadataColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[titulo_suscripcion]"
                       codePage="1252"
                       dataType="str"
                       length="45"
                       name="titulo_suscripcion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
-                      codePage="1252"
-                      dataType="text"
-                      name="descripcion" />
                     <externalMetadataColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[fecha_inicio]"
                       dataType="dbTimeStamp"
@@ -2814,6 +2006,60 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[num_integrantes]"
                       dataType="i4"
                       name="num_integrantes" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[descripcion_suscripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      name="descripcion_suscripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[descripcion_promocion]"
+                      codePage="1252"
+                      dataType="text"
+                      name="descripcion_promocion" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[nombre_usuario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre_usuario" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[contrasena]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="contrasena" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[correo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="correo" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[fecha_creacion]"
+                      dataType="dbDate"
+                      name="fecha_creacion" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[fecha_nacimiento]"
+                      dataType="dbDate"
+                      name="fecha_nacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[genero]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="genero" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      name="region" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2826,11 +2072,6 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       dataType="i4"
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[id_registro_suscripcion]"
                       name="id_registro_suscripcion" />
-                    <outputColumn
-                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[id_suscripcion]"
-                      dataType="i4"
-                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[id_suscripcion]"
-                      name="id_suscripcion" />
                     <outputColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[id_grupo]"
                       dataType="i4"
@@ -2849,11 +2090,17 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[titulo_suscripcion]"
                       name="titulo_suscripcion" />
                     <outputColumn
-                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[descripcion_suscripcion]"
                       codePage="1252"
                       dataType="text"
-                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[descripcion]"
-                      name="descripcion" />
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[descripcion_suscripcion]"
+                      name="descripcion_suscripcion" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[descripcion_promocion]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[descripcion_promocion]"
+                      name="descripcion_promocion" />
                     <outputColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[fecha_inicio]"
                       dataType="dbTimeStamp"
@@ -2884,6 +2131,58 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
                       precision="10"
                       scale="2" />
                     <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[nombre_usuario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[nombre_usuario]"
+                      name="nombre_usuario" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[contrasena]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[contrasena]"
+                      name="contrasena" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[correo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[correo]"
+                      name="correo" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[fecha_creacion]"
+                      dataType="dbDate"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[fecha_creacion]"
+                      name="fecha_creacion" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[fecha_nacimiento]"
+                      dataType="dbDate"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[fecha_nacimiento]"
+                      name="fecha_nacimiento" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[genero]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[genero]"
+                      name="genero" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[pais]"
+                      name="pais" />
+                    <outputColumn
+                      refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="45"
+                      lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
                       refId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\Importar Suscripcion\Origen Suscripcion.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -2911,536 +2210,16 @@ Left Join splotify.Grupo g ON g.id_grupo = su.id_grupo</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Importar Usuario"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{442f5b4a-5dc2-43cb-990a-334142486c68}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Importar Usuario"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Importar Usuario\Dim_Usuario"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Dim_Usuario"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[splotify].[Dim_Usuario]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Usuario\Dim_Usuario.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DW Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[DW Destino]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[id_usuario]"
-                      cachedDataType="i4"
-                      cachedName="id_usuario"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[id_usuario]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[id_usuario]" />
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[nombre_usuario]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="nombre_usuario"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[nombre_usuario]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[nombre_usuario]" />
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[contrasena]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="contrasena"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[contrasena]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[contrasena]" />
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[correo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="correo"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[correo]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[correo]" />
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[fecha_creacion]"
-                      cachedDataType="dbDate"
-                      cachedName="fecha_creacion"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[fecha_creacion]" />
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[fecha_nacimiento]"
-                      cachedDataType="dbDate"
-                      cachedName="fecha_nacimiento"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[fecha_nacimiento]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]" />
-                    <inputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].Columns[genero]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="genero"
-                      externalMetadataColumnId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[genero]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[genero]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[id_usuario]"
-                      dataType="i4"
-                      name="id_usuario" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[nombre_usuario]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nombre_usuario" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[contrasena]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="contrasena" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[correo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="correo" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
-                      dataType="dbDate"
-                      name="fecha_creacion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[fecha_nacimiento]"
-                      dataType="dbDate"
-                      name="fecha_nacimiento" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input].ExternalColumns[genero]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="genero" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Importar Usuario\Dim_Usuario.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Usuario\Dim_Usuario.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Dim_Usuario.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Usuario\Dim_Usuario.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Importar Usuario\Origen Usuario"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Origen Usuario"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select u.id_usuario,u.nombre_usuario,u.contrasena,u.correo,u.fecha_creacion,u.fecha_nacimiento,g.descripcion as genero,p.nombre as pais 
-from splotify.Usuario u
-Join splotify.Pais p On p.id_pais= u.id_pais
-Join splotify.Genero g On g.id_genero= u.id_genero</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Importar Usuario\Origen Usuario.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Staging Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Staging Origen]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[id_usuario]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[id_usuario]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[id_usuario]"
-                      name="id_usuario"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[nombre_usuario]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[nombre_usuario]"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[nombre_usuario]"
-                      name="nombre_usuario"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[contrasena]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[contrasena]"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[contrasena]"
-                      name="contrasena"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[correo]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[correo]"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[correo]"
-                      name="correo"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[fecha_creacion]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[fecha_creacion]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[fecha_creacion]"
-                      name="fecha_creacion"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[fecha_nacimiento]"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]"
-                      name="fecha_nacimiento"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[genero]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[genero]"
-                      length="50"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[genero]"
-                      name="genero"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[pais]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[pais]"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].Columns[pais]"
-                      name="pais"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[id_usuario]"
-                      dataType="i4"
-                      name="id_usuario" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[nombre_usuario]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="nombre_usuario" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[contrasena]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="contrasena" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[correo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="correo" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[fecha_creacion]"
-                      dataType="dbDate"
-                      name="fecha_creacion" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[fecha_nacimiento]"
-                      dataType="dbDate"
-                      name="fecha_nacimiento" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[genero]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="genero" />
-                    <externalMetadataColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output].ExternalColumns[pais]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="pais" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[id_usuario]"
-                      dataType="i4"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[id_usuario]"
-                      name="id_usuario" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[nombre_usuario]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[nombre_usuario]"
-                      name="nombre_usuario" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[contrasena]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[contrasena]"
-                      name="contrasena" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[correo]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[correo]"
-                      name="correo" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[fecha_creacion]"
-                      dataType="dbDate"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[fecha_creacion]"
-                      name="fecha_creacion" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[fecha_nacimiento]"
-                      dataType="dbDate"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[fecha_nacimiento]"
-                      name="fecha_nacimiento" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[genero]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[genero]"
-                      name="genero" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[pais]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[pais]"
-                      name="pais" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Importar Usuario.Paths[OLE DB Source Output]"
-              endId="Package\Importar Usuario\Dim_Usuario.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Importar Usuario\Origen Usuario.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Tarea Ejecutar SQL"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{E7838107-ABF8-4731-AFE3-E99574990C5D}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Tarea Ejecutar SQL"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{7B43C4FC-0B3D-4AD1-B4A9-F3B731A7E1B4}"
-          SQLTask:SqlStatementSource="DECLARE @fecha_inicio DATE = CAST( '2023-01-01' AS DATE)&#xA;DECLARE @fecha_fin DATE = CAST( '2025-12-31' AS DATE)&#xA;DECLARE @anio INT&#xA;DECLARE @mes INT&#xA;DECLARE @dia INT&#xA;DECLARE @trimestre INT&#xA;WHILE @fecha_inicio &lt; @fecha_fin&#xA;Begin&#xA;&#x9;Print(@fecha_inicio)&#xA;&#x9;SET @anio = YEAR(@fecha_inicio)&#xA;&#x9;SET @mes = MONTH(@fecha_inicio)&#xA;&#x9;SET @dia = DAY(@fecha_inicio)&#xA;&#x9;&#xA;&#x9;SET @trimestre = CASE &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 3 THEN 1 &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 6 THEN 2 &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 9 THEN 3 &#xA;&#x9;&#x9;&#x9;WHEN @mes &lt;= 12 THEN 4 &#xA;&#x9;&#x9;                 END&#xA;&#x9;Insert Into splotify.Dim_Tiempo(fecha, anio, mes, dia, trimestre) VALUES&#xA;&#x9;(@fecha_inicio, @anio, @mes, @dia, @trimestre)&#xA;&#xA;&#x9;SET @fecha_inicio = DATEADD(DAY, 1, @fecha_inicio)&#xA;End" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{F5DFDD0C-6E9B-448D-9CC3-16CCEA783C32}"
-      DTS:From="Package\Importar Promocion"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\Importar Genero_Musical" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{AD258E17-88E6-43F5-B9C8-C58381EF8635}"
-      DTS:From="Package\Importar Genero_Musical"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 1"
-      DTS:To="Package\Importar Album" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{6BDB15E8-831E-4860-8076-B497F246D73B}"
+      DTS:DTSID="{EFC4BF7C-E6CE-40CB-8E2E-23C166D6BE24}"
       DTS:From="Package\Importar Cancion"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 2"
-      DTS:To="Package\Importar Pais" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{A1C44FB7-8544-4AF3-A4C0-23F1A7F7FE44}"
-      DTS:From="Package\Importar Usuario"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 3"
-      DTS:To="Package\Importar Suscripcion" />
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Importar Album" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
       DTS:CreationName=""
@@ -3450,26 +2229,18 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
       DTS:ObjectName="Restricción 4"
       DTS:To="Package\Importar Reproduccion" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{1188BE05-A2B3-42AC-BF27-02E9CB99D600}"
-      DTS:From="Package\Importar Pais"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 5"
-      DTS:To="Package\Importar Reproduccion" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
       DTS:CreationName=""
       DTS:DTSID="{C03E3E60-23E9-476B-87C6-1C88DDAE3C4E}"
       DTS:From="Package\Importar Suscripcion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 6"
-      DTS:To="Package\Tarea Ejecutar SQL" />
+      DTS:To="Package\Generar Valores para Dim_Tiempo" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
       DTS:CreationName=""
       DTS:DTSID="{4D2046C5-2B76-443E-B563-C0535094D12F}"
-      DTS:From="Package\Tarea Ejecutar SQL"
+      DTS:From="Package\Generar Valores para Dim_Tiempo"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 7"
       DTS:To="Package\Importar Reproduccion" />
@@ -3485,27 +2256,15 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Importar Album"
-          TopLeft="174.999990438422,252.599999656479" />
+          TopLeft="224.999987706543,251.733332995839" />
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Importar Cancion"
-          TopLeft="394.166645130351,45.666668468647" />
-        <NodeLayout
-          Size="196,41.6"
-          Id="Package\Importar Genero_Musical"
-          TopLeft="141.666658926342,146.666666353279" />
-        <NodeLayout
-          Size="140,41.6"
-          Id="Package\Importar Pais"
-          TopLeft="406.66664444738,160.933334189123" />
-        <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\Importar Promocion"
-          TopLeft="151.666658379966,40.7333330500788" />
+          TopLeft="100.833327824044,167.866667618883" />
         <NodeLayout
           Size="184,41.6"
           Id="Package\Importar Reproduccion"
@@ -3513,137 +2272,37 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Importar Suscripcion"
-          TopLeft="610.833299958873,140.133334478405" />
+          TopLeft="705.833294768302,169.600000940164" />
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\Importar Usuario"
-          TopLeft="621.666632700299,47.4000017899277" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="238.066658653154,82.3333330500788">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.3333333032002"
-              Start="0,0"
-              End="0,56.8333333032002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.8333333032002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="239.666658926342,188.266666353279">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.1333315120804,64.3333333031998"
-              Start="0,0"
-              End="10.1333315120804,56.8333333031998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.1666666515999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.1666666515999"
-                    Point2="0,32.1666666515999"
-                    Point3="4,32.1666666515999" />
-                  <mssgle:LineSegment
-                    End="6.13333151208039,32.1666666515999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.13333151208039,32.1666666515999"
-                    Point2="10.1333315120804,32.1666666515999"
-                    Point3="10.1333315120804,36.1666666515999" />
-                  <mssgle:LineSegment
-                    End="10.1333315120804,56.8333333031998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="475.016644788866,87.266668468647">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73.666665720476"
-              Start="0,0"
-              End="0,66.166665720476">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.166665720476" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="698.649966329586,89.0000017899277">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.1333326884773"
-              Start="0,0"
-              End="0,43.6333326884773">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.6333326884773" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="240,41.6"
+          Id="Package\Generar Valores para Dim_Tiempo"
+          TopLeft="600.499969129762,257.366665123833" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="249.799990438422,294.199999656479">
+          TopLeft="299.799987706543,293.333332995839">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="188.199988252918,62.8666645271901"
+              EndConnector="152.866657651464,63.73333118783"
               Start="0,0"
-              End="188.199988252918,55.3666645271901">
+              End="152.866657651464,56.23333118783">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.3123795464392" />
+                    End="0,33.9103435513816" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37.3123795464392"
-                    Point2="0,41.3123795464392"
-                    Point3="4,41.3123795464392" />
+                    Point1="0,33.9103435513816"
+                    Point2="0,37.9103435513816"
+                    Point3="4,37.9103435513816" />
                   <mssgle:LineSegment
-                    End="184.199988252918,41.3123795464392" />
+                    End="148.866657651464,37.9103435513816" />
                   <mssgle:CubicBezierSegment
-                    Point1="184.199988252918,41.3123795464392"
-                    Point2="188.199988252918,41.3123795464392"
-                    Point3="188.199988252918,45.3123795464392" />
+                    Point1="148.866657651464,37.9103435513816"
+                    Point2="152.866657651464,37.9103435513816"
+                    Point3="152.866657651464,41.9103435513816" />
                   <mssgle:LineSegment
-                    End="188.199988252918,55.3666645271901" />
+                    End="152.866657651464,56.23333118783" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3652,58 +2311,32 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="479.33331156936,202.533334189123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,154.533329994546"
-              Start="0,0"
-              End="0,147.033329994546">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,147.033329994546" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Tarea Ejecutar SQL"
-          TopLeft="602.166635705366,240.899998571674" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 6]"
-          TopLeft="697.633299958873,181.733334478405">
+          TopLeft="792.633294768302,211.200000940164">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.2666642535066,59.1666640932691"
+              EndConnector="-72.1333256385399,46.1666641836693"
               Start="0,0"
-              End="-10.2666642535066,51.6666640932691">
+              End="-72.1333256385399,38.6666641836693">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5833320466346" />
+                    End="0,19.0833320918347" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.5833320466346"
-                    Point2="0,29.5833320466346"
-                    Point3="-4,29.5833320466346" />
+                    Point1="0,19.0833320918347"
+                    Point2="0,23.0833320918347"
+                    Point3="-4,23.0833320918347" />
                   <mssgle:LineSegment
-                    End="-6.26666425350663,29.5833320466346" />
+                    End="-68.1333256385399,23.0833320918347" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6.26666425350663,29.5833320466346"
-                    Point2="-10.2666642535066,29.5833320466346"
-                    Point3="-10.2666642535066,33.5833320466346" />
+                    Point1="-68.1333256385399,23.0833320918347"
+                    Point2="-72.1333256385399,23.0833320918347"
+                    Point3="-72.1333256385399,27.0833320918347" />
                   <mssgle:LineSegment
-                    End="-10.2666642535066,51.6666640932691" />
+                    End="-72.1333256385399,38.6666641836693" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3714,30 +2347,64 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 7]"
-          TopLeft="687.366635705366,282.499998571674">
+          TopLeft="720.499969129762,298.966665123833">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-161.366657014026,74.5666656119949"
+              EndConnector="-209.166657105089,58.0999990598355"
               Start="0,0"
-              End="-161.366657014026,67.0666656119949">
+              End="-209.166657105089,50.5999990598355">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.0009516878823" />
+                    End="0,30.5594821993849" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,45.0009516878823"
-                    Point2="0,49.0009516878823"
-                    Point3="-4,49.0009516878823" />
+                    Point1="0,30.5594821993849"
+                    Point2="0,34.5594821993849"
+                    Point3="-4,34.5594821993849" />
                   <mssgle:LineSegment
-                    End="-157.366657014026,49.0009516878823" />
+                    End="-205.166657105089,34.5594821993849" />
                   <mssgle:CubicBezierSegment
-                    Point1="-157.366657014026,49.0009516878823"
-                    Point2="-161.366657014026,49.0009516878823"
-                    Point3="-161.366657014026,53.0009516878823" />
+                    Point1="-205.166657105089,34.5594821993849"
+                    Point2="-209.166657105089,34.5594821993849"
+                    Point3="-209.166657105089,38.5594821993849" />
                   <mssgle:LineSegment
-                    End="-161.366657014026,67.0666656119949" />
+                    End="-209.166657105089,50.5999990598355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="180.033327824044,209.466667618883">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119.766659882499,42.2666653769555"
+              Start="0,0"
+              End="119.766659882499,34.7666653769555">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.1333326884778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.1333326884778"
+                    Point2="0,21.1333326884778"
+                    Point3="4,21.1333326884778" />
+                  <mssgle:LineSegment
+                    End="115.766659882499,21.1333326884778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="115.766659882499,21.1333326884778"
+                    Point2="119.766659882499,21.1333326884778"
+                    Point3="119.766659882499,25.1333326884778" />
+                  <mssgle:LineSegment
+                    End="119.766659882499,34.7666653769555" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3753,7 +2420,7 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
     design-time-name="Package\Importar Album">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="132,41.6"
           Id="Package\Importar Album\Dim_Album"
@@ -3781,9 +2448,7 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3814,7 +2479,7 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
     design-time-name="Package\Importar Cancion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Importar Cancion\Origen Cancion"
@@ -3822,29 +2487,27 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
         <NodeLayout
           Size="140.8,41.6"
           Id="Package\Importar Cancion\Dim_Cancion"
-          TopLeft="56.5555535309294,147.633332585362" />
+          TopLeft="59.5555534862259,125.633332913188" />
         <EdgeLayout
           Id="Package\Importar Cancion.Paths[OLE DB Source Output]"
-          TopLeft="127.994442111723,68.7666665159994">
+          TopLeft="129.494442089371,68.7666665159994">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78.8666660693627"
+              EndConnector="0,56.8666663971881"
               Start="0,0"
-              End="0,71.3666660693627">
+              End="0,49.3666663971881">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,71.3666660693627" />
+                    End="0,49.3666663971881" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3865,189 +2528,6 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Importar Cancion\Origen Cancion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Importar Genero_Musical">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\Importar Genero_Musical\Origen Genero_Musical"
-          TopLeft="53.8333306925165,27.1666665159994" />
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Importar Genero_Musical\Dim_Genero_Musical"
-          TopLeft="56.5555535309294,148.499999246002" />
-        <EdgeLayout
-          Id="Package\Importar Genero_Musical.Paths[OLE DB Source Output]"
-          TopLeft="146.794442111723,68.7666665159994">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,79.7333327300022"
-              Start="0,0"
-              End="0,72.2333327300022">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.2333327300022" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Genero_Musical\Dim_Genero_Musical">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Genero_Musical\Origen Genero_Musical">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Importar Pais">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\Importar Pais\Origen Pais"
-          TopLeft="53.8333306925165,27.1666665159994" />
-        <NodeLayout
-          Size="123.2,41.6"
-          Id="Package\Importar Pais\Dim_Pais"
-          TopLeft="56.5555535309294,148.499999246002" />
-        <EdgeLayout
-          Id="Package\Importar Pais.Paths[OLE DB Source Output]"
-          TopLeft="119.194442111723,68.7666665159994">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,79.7333327300026"
-              Start="0,0"
-              End="0,72.2333327300026">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.2333327300026" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Pais\Dim_Pais">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Pais\Origen Pais">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Importar Promocion">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Importar Promocion\Origen Promocion"
-          TopLeft="86.3333289167949,27.1666665159994" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Importar Promocion\Dim_Promocion"
-          TopLeft="97.72221882255,149.033332543837" />
-        <EdgeLayout
-          Id="Package\Importar Promocion.Paths[OLE DB Source Output]"
-          TopLeft="170.827773869672,68.7666665159994">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80.2666660278377"
-              Start="0,0"
-              End="0,72.7666660278377">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.7666660278377" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Promocion\Dim_Promocion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Promocion\Origen Promocion">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4166,67 +2646,6 @@ Join splotify.Genero g On g.id_genero= u.id_genero</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Importar Suscripcion\Origen Suscripcion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Importar Usuario">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="148,41.6"
-          Id="Package\Importar Usuario\Origen Usuario"
-          TopLeft="53.8333306925165,27.1666665159994" />
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Importar Usuario\Dim_Usuario"
-          TopLeft="56.5555535309294,148.499999246002" />
-        <EdgeLayout
-          Id="Package\Importar Usuario.Paths[OLE DB Source Output]"
-          TopLeft="126.794442111723,68.7666665159994">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,79.7333327300026"
-              Start="0,0"
-              End="0,72.2333327300026">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.2333327300026" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Usuario\Dim_Usuario">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Importar Usuario\Origen Usuario">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -174,6 +174,7 @@ CREATE Table splotify.Reproduccion (
 IF OBJECT_ID('splotify.Promocion', 'U') IS NOT NULL DROP Table splotify.Promocion 
 CREATE Table splotify.Promocion (
   id_promocion INT PRIMARY KEY IDENTITY,
+  descripcion VARCHAR(MAX) NOT NULL,
   descuento DECIMAL(10,2) NOT NULL,
   fecha_inicio DATE NOT NULL,
   fecha_fin DATE NOT NULL,

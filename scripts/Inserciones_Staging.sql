@@ -223,6 +223,12 @@ INSERT INTO splotify.Suscripcion (titulo, descripcion, precio) VALUES
 ('Prueba Gratuita', 'Prueba premium por 30 días', 0.00),
 ('Individual', 'Plan para 1 usuario', 4.99);
 
+--Promoción
+INSERT INTO splotify.Promocion (descripcion ,descuento, fecha_inicio, fecha_fin, id_suscripcion) VALUES
+('50% off Familiar en navidad', 50.00, '2023-11-20', '2023-12-31', 2),
+('30% off Duo en junio', 30.00, '2024-06-01', '2024-06-30', 3),
+('20% off Individual en septiembre', 20.00, '2024-09-01', '2024-09-30', 5);
+
 --Grupo
 INSERT INTO splotify.Grupo (max_integrantes) VALUES
 (6), (6), (6), -- Familiares
@@ -323,12 +329,6 @@ INSERT INTO splotify.Suscripcion_X_Usuario (id_suscripcion, id_usuario, id_grupo
 (5, 49, NULL, '2024-01-24', '2025-01-24', NULL, 4.99, 0.00),
 (5, 50, NULL, '2024-02-05', '2025-02-05', NULL, 4.99, 0.00);
 
-
---Promoción
-INSERT INTO splotify.Promocion (descuento, fecha_inicio, fecha_fin, id_suscripcion) VALUES
-(50.00, '2023-11-20', '2023-12-31', 2), -- 50% off Familiar en navidad
-(30.00, '2024-06-01', '2024-06-30', 3), -- 30% off Duo en junio
-(20.00, '2024-09-01', '2024-09-30', 5); -- 20% off Individual en septiembre
 
 --Reproduccion
 INSERT INTO splotify.Reproduccion (id_usuario, id_cancion, tiempo_reproduccion, fecha_reproduccion) VALUES
