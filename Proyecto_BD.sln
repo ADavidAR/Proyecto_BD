@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{C458
 		scripts\Resgistros_BD_staging.sql = scripts\Resgistros_BD_staging.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Res", "Res", "{94632192-87FA-491B-BCCE-23C0F2FEEA5A}"
+	ProjectSection(SolutionItems) = preProject
+		res\DataWarehouseDB.png = res\DataWarehouseDB.png
+		res\StagingDB.png = res\StagingDB.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default

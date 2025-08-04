@@ -75,7 +75,7 @@ CREATE Table splotify.Artista_X_Album (
 IF OBJECT_ID('splotify.Region', 'U') IS NOT NULL DROP Table splotify.Region 
 CREATE Table splotify.Region (
   id_region INT PRIMARY KEY IDENTITY,
-  nombre VARCHAR(45) NULL
+  nombre VARCHAR(45) NOT NULL
 )
 
 -- -----------------------------------------------------
@@ -108,7 +108,7 @@ CREATE Table splotify.Usuario (
   contrasena VARCHAR(100) NOT NULL,
   correo VARCHAR(100) NOT NULL,
   fecha_creacion DATE NOT NULL,
-  fecha_nacimiento DATE NULL,
+  fecha_nacimiento DATE NOT NULL,
   id_pais INT NOT NULL,
   id_genero INT NOT NULL,
   FOREIGN KEY (id_pais) REFERENCES splotify.Pais (id_pais),
@@ -163,7 +163,7 @@ CREATE Table splotify.Reproduccion (
   id_usuario INT NOT NULL,
   id_cancion INT NOT NULL,
   tiempo_reproduccion TIME NOT NULL,
-  fecha_reproduccion DATETIME NULL,
+  fecha_reproduccion DATETIME NOT NULL,
   FOREIGN KEY (id_usuario) REFERENCES splotify.Usuario (id_usuario),
   FOREIGN KEY (id_cancion) REFERENCES splotify.Cancion (id_cancion)
 )
