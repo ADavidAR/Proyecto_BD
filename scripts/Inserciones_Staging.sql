@@ -3,7 +3,7 @@ go
 
 --Genero_Musical
 INSERT INTO splotify.Genero_Musical (nombre) VALUES
-('Pop'), ('Rock'), ('Hip Hop'), ('Electr�nica'), ('Reggaet�n'), ('Jazz'), ('Cl�sica');
+('Pop'), ('Rock'), ('Hip Hop'), ('Electronica'), ('Reggaeton'), ('Jazz'), ('Clasica');
 
 --Album
 INSERT INTO splotify.Album (titulo, fecha_lanzamiento) VALUES
@@ -51,7 +51,7 @@ INSERT INTO splotify.Cancion (titulo, duracion, fecha_lanzamiento, id_album, id_
 ('You''re On Your Own, Kid', '00:03:14', '2022-10-21', 1, 1),
 
 -- Reggaet�n (5)
-('Tit� Me Pregunt�', '00:04:03', '2022-05-06', 2, 5),
+('Titi Me Pregunto', '00:04:03', '2022-05-06', 2, 5),
 ('Me Porto Bonito', '00:02:58', '2022-05-06', 2, 5),
 ('Party', '00:03:47', '2022-05-06', 2, 5),
 ('Neverita', '00:02:53', '2022-05-06', 2, 5),
@@ -140,22 +140,22 @@ INSERT INTO splotify.Artista_X_Album (id_artista, id_album) VALUES
 
 --Region
 INSERT INTO splotify.Region (nombre) VALUES
-('Asia'), ('�frica'), ('Am�rica del Norte'), ('Am�rica del Sur'), ('Ant�rtida'), ('Europa'), ('Ocean�a');
+('Asia'), ('Africa'), ('America del Norte'), ('America del Sur'), ('Antartida'), ('Europa'), ('Oceania');
 
 --Pais
 INSERT INTO splotify.Pais (nombre, id_region) VALUES
 -- Asia (1)
-('Jap�n', 1), ('Corea del Sur', 1), ('India', 1),
+('Japon', 1), ('Corea del Sur', 1), ('India', 1),
 -- �frica (2)
-('Sud�frica', 2), ('Egipto', 2),
+('Sudafrica', 2), ('Egipto', 2),
 -- Am�rica del Norte (3)
-('Estados Unidos', 3), ('M�xico', 3), ('Canad�', 3),
+('Estados Unidos', 3), ('Mexico', 3), ('Canada', 3),
 -- Am�rica del Sur (4)
 ('Argentina', 4), ('Brasil', 4), ('Colombia', 4),
 -- Ant�rtida (5)
 ('Base McMurdo', 5),
 -- Europa (6)
-('Espa�a', 6), ('Francia', 6), ('Alemania', 6),
+('España', 6), ('Francia', 6), ('Alemania', 6),
 -- Ocean�a (7)
 ('Australia', 7), ('Nueva Zelanda', 7);
 
@@ -218,10 +218,10 @@ INSERT INTO splotify.Usuario (nombre_usuario, contrasena, correo, fecha_creacion
 
 --Suscripcion
 INSERT INTO splotify.Suscripcion (titulo, descripcion, precio) VALUES
-('Gratis', 'Plan b�sico con anuncios', 0.00),
+('Gratis', 'Plan basico con anuncios', 0.00),
 ('Familiar', 'Plan para hasta 6 usuarios', 14.99),
 ('Duo', 'Plan para 2 usuarios', 9.99),
-('Prueba Gratuita', 'Prueba premium por 30 d�as', 0.00),
+('Prueba Gratuita', 'Prueba premium por 30 dias', 0.00),
 ('Individual', 'Plan para 1 usuario', 4.99);
 
 --Promoci�n
@@ -330,7 +330,11 @@ INSERT INTO splotify.Suscripcion_X_Usuario (id_suscripcion, id_usuario, id_grupo
 (5, 37, NULL, '2025-09-02', '2025-10-02', NULL, 4.99, 0.00),
 (5, 38, NULL, '2025-09-15', '2025-10-15', NULL, 4.99, 0.00),
 (5, 44, NULL, '2025-09-30', '2025-10-30', NULL, 4.99, 0.00),
-(5, 34, NULL, '2025-09-10', '2025-10-10', NULL, 4.99, 0.00);
+(5, 34, NULL, '2025-09-10', '2025-10-10', NULL, 4.99, 0.00),
+
+-- Usuarios que volvieron despues de promocion duo
+(3, 24, 5, '2024-07-28', '2024-08-28', NULL, 9.99, 0.00),
+(3, 25, 5, '2024-07-28', '2024-08-28', NULL, 0.00, 0.00);
 
 --Reproduccion
 INSERT INTO splotify.Reproduccion (id_usuario, id_cancion, tiempo_reproduccion, fecha_reproduccion) VALUES
@@ -771,9 +775,9 @@ INSERT INTO splotify.Reproduccion (id_usuario, id_cancion, tiempo_reproduccion, 
 (44, 11, '00:02:52', '2024-10-29 22:10:34'),
 (44, 16, '00:02:58', '2024-10-30 11:25:47'),
 (44, 21, '00:03:03', '2024-10-31 15:10:47'),
-(44, 26, '00:03:02', '2024-09-01 21:25:33'),
-(44, 31, '00:02:54', '2024-09-02 10:40:18'),
-(44, 36, '00:03:20', '2024-09-03 13:15:29'),
+(44, 26, '00:03:02', '2024-09-25 21:25:33'),
+(44, 31, '00:02:54', '2024-09-29 10:40:18'),
+(44, 36, '00:03:20', '2025-10-15 13:15:29'),
 (45, 41, '00:03:59', '2023-09-06 18:30:42'),
 (45, 6, '00:04:03', '2023-09-07 08:45:51'),
 (45, 11, '00:02:52', '2023-09-08 22:10:34'),
